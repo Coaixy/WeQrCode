@@ -4,7 +4,7 @@ import {useState} from "react";
 import {CameraIcon} from "./CameraIcon.jsx";
 import jsQR from "jsqr";
 import "../config.js"
-import {createUrl, getImgUrl} from "../config.js";
+import {codePreview, createUrl, getImgUrl} from "../config.js";
 import QRCode from "qrcode.react";
 
 function copyToClipboard(text) {
@@ -94,7 +94,7 @@ export default function Create() {
                                 setWxSrc(data.url)
                                 setInfo("二维码链接已复制")
                                 onOpen()
-                                copyToClipboard("http://127.0.0.1:5173/#code?token=" + uuid)
+                                copyToClipboard(codePreview + uuid)
                             })
                             .catch(error => {
                                 console.error(error);
